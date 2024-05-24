@@ -2,17 +2,18 @@ import React from 'react'
 import { images } from '../constants'
 
 const navItemsInfo = [
-    {name:"Home"},
-    {name:"Articles"},
-    {name:"Interviews"},
-    {name:"Surveys"},
+    {name:"Home" , type:"link"}, //type:"dropdown", items:"sasasa"
+    {name:"Articles",type:"link"},
+    {name:"Interviews",type:"link"},
+    {name:"Surveys",type:"link"},
+    {name:"About",type:"link"}
 ]
 
 const NavItem = ({name}) =>{
     return (
         <li className='relative group'>
-            <a href='' className='px-2 py-2 group-hover:text-underline'>{name}</a>
-            <span className='text-white absolute transition-all duration-500 font-bold right-0 top-0 group-hover:right-[95%] opacity-0 group-hover:opacity-100'>/</span>
+            <a href='' className='px-1.5 py-2 group-hover:text-underline'>{name}</a>
+            <span className=' cursor-pointer text-white absolute transition-all duration-500 font-bold right-0 top-0 group-hover:right-[95%] opacity-0 group-hover:opacity-100'>/</span>
         </li>
     )
 }
@@ -20,9 +21,9 @@ const NavItem = ({name}) =>{
 const Header = () => {
   return (
     <section>
-        <header className='container mx-auto px-5 flex justify-center py-4 bg-black items-center font-semibold'>
+        <header className='container mx-auto px-5 flex justify-center py-4 bg-black items-center font-semibold position:fixed'>
             <div className='bg-black w-1/3 flex'>
-                <img src={images.Logo} alt="logo" className='h-10 mr-5  items-center'/>
+                <img src={images.Logo} alt="logo" className='h-10 mr-5'/>
                 <div className='flex items-center'>
                 <p className='text-white align-middle'>The Media Club IIT BHU</p>
                 </div>

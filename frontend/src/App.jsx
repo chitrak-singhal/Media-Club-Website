@@ -1,10 +1,11 @@
 import { useState } from 'react'
 import './index.css'
-import HomePage from './pages/HomePage'
+import './App.css'
+import HomePage from './pages/home/HomePage'
 function App() {
 
   return (
-    <div className='App'>
+    <div className='App font-opensans'>
       <HomePage />
     </div>
   )
