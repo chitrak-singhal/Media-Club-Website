@@ -20,7 +20,7 @@ const NavItem = ({name}) =>{
 
 const Header = () => {
   return (
-    <section className='bg-black sticky top-0 '>
+    <section className='bg-black sticky top-0 z-20'>
         <header className='mx-auto w-full container px-5 flex justify-center py-4 bg-black items-center font-semibold position:fixed'>
             <div className='bg-black w-1/3 flex'>
                 <img src={images.Logo} alt="logo" className='h-10 mr-5'/>
