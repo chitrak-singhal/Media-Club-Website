@@ -1,5 +1,6 @@
 import React from 'react'
 import { images } from '/src/constants'
+import Search from '../../../components/Search'
 
 const Hero = () => {
   return (
@@ -14,6 +15,7 @@ const Hero = () => {
             <button className=' text-white border-2 border-white px-6 pb-2 pt-1.5 rounded-full font-semibold hover:bg-white hover:text-black transition-all duration-300'>
                     Learn More
             </button>
+            <Search></Search>
         </div>
       </div>
     </section>
