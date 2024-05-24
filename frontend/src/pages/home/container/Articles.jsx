@@ -11,7 +11,7 @@ const Articles = () => {
       <ArticleCard className='lg:w-[30%] md:w-[calc(40%)]'/>
       <ArticleCard className='lg:w-[30%] md:w-[calc(40%)]'/>
       </div>
-      <button className='mx-auto flex items-center gap-x-2 font-bold text-black border-2 border-black px-6 py-3 rounded-lg'>
+      <button className='group mx-auto flex items-center gap-x-2 font-bold text-black border-2 border-black px-6 py-3 rounded-lg hover:bg-black hover:text-white transition-all duration-300'>
         <span>Explore</span>
         <FaArrowRight className='w-3 h-3'/>
       </button>

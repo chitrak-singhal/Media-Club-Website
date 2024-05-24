@@ -6,7 +6,7 @@ import { SparklesCore } from '../../../components/sparkles'
 const Hero = () => {
   return (
     <section>
-      <div className='flex relative pt-5 pb-8 bg-red-500 h-'>
+      <div className='flex relative pt-5 pb-8 bg-red-500 '>
         <div className="w-full absolute z-0 inset-0 h-full bg-black">
         <SparklesCore
           id="tsparticlesfullpage"
