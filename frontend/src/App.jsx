@@ -5,6 +5,7 @@ import {Routes,Route, Router} from 'react-router-dom'
 
 import HomePage from './pages/home/HomePage'
 import ArticleDetailPage from './pages/articleDetail/ArticleDetailPage'
+import Articles from './pages/articles/Articles'
 
 function App() {
 
@@ -13,6 +14,7 @@ function App() {
       <Routes>
         <Route index path="/" element={<HomePage />}/>
         <Route path='/blog/:id' element={<ArticleDetailPage />}/>
+        <Route path='/blog/' element={<Articles/>}/>
       </Routes>
     </div>
   )

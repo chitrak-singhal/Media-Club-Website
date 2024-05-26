@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 const navItemsInfo = [
     {name:"Home" , type:"link", link:"/"}, //type:"dropdown", items:"sasasa"
-    {name:"Articles",type:"link"},
+    {name:"Articles",type:"link",link:"/blog"},
     {name:"Interviews",type:"link"},
     {name:"Surveys",type:"link"},
     {name:"About",type:"link"}
