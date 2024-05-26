@@ -1,18 +1,20 @@
 import React from 'react'
 import { images } from '../constants'
+import { Link } from 'react-router-dom'
 
 const navItemsInfo = [
-    {name:"Home" , type:"link"}, //type:"dropdown", items:"sasasa"
+    {name:"Home" , type:"link", link:"/"}, //type:"dropdown", items:"sasasa"
     {name:"Articles",type:"link"},
     {name:"Interviews",type:"link"},
     {name:"Surveys",type:"link"},
     {name:"About",type:"link"}
 ]
 
-const NavItem = ({name}) =>{
+const NavItem = ({name,link}) =>{
     return (
         <li className='relative group'>
-            <a href='' className='px-1.5 py-2 group-hover:text-underline'>{name}</a>
+            <Link to={link} className='px-1.5 py-2 group-hover:text-underline'>{name} </Link>
+            {/* <a href='' className='px-1.5 py-2 group-hover:text-underline'>{name}</a> */}
             <span className=' cursor-pointer text-white absolute transition-all duration-500 font-bold right-0 top-0 group-hover:right-[95%] opacity-0 group-hover:opacity-100'>/</span>
         </li>
     )
@@ -31,7 +33,7 @@ const Header = () => {
             <div className='bg-black flex gap-x-9 w-1/3 justify-center font-medium'>
                 <ul className='flex gap-x-5 text-white'>
                     {navItemsInfo.map(item =>(
-                        <NavItem key={item.name} name={item.name}/>
+                        <NavItem key={item.name} name={item.name} link={item.link}/>
                     ))}
                 </ul>
             </div>
