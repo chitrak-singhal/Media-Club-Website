@@ -6,9 +6,9 @@ const BreadCrumbs = ({data}) => {
   return (
     <div className='flex items-center py-4 overflow-x-auto whitespace-nowrap'>
       {data.map((item,index)=>(
-        <div className='text-black opacity-50 text-sm flex flex-cols'>
-            <Link to={item.link}>{item.name} </Link>
-            {index!==data.length-1&&<MdKeyboardArrowRight className='my-1' />}            
+        <div key={item.name} className='text-black text-sm flex flex-cols'>
+            <Link to={item.link} className='opacity-50 hover:opacity-100'>{item.name} </Link>
+            {index!==data.length-1&&<MdKeyboardArrowRight className='my-1 opacity-50' />}            
         </div>            
       ))}
     </div>
