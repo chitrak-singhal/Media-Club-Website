@@ -26,23 +26,49 @@ function ErrorMsg({articleFound}) {
     }
 }
 const Update = () => {
-    const  [check, setCheck] = useState();
     const [articleFound, setArticleFound]=useState(0); //0 initial //1 green // 2 red
-
+    const [oldId, setOldId] = useState();
     async function updateData(e){
         //console.log(e,'hi');
         e.preventDefault();
+        console.log(oldId);
+        let article;
+        const fetch = async () => {
+            const{data,error} = await supabase
+            .from('articles')
+            .select()
+            .eq('id',oldId)
+            console.log(data);
+            article = data[0];
+        }
+        await fetch();
+        let old_img_id = article.img_id;
         let img_id = uuidv4();
         let title = e.target[0].value;
+        if (!title) title = article.title;
         let description = e.target[1].value;
+        if (!description) description = article.description;
         let content = e.target[2].value;
+        if (!content) content = article.content;
         let link = e.target[3].value;
+        if (!link) link = article.link;
         let category = e.target[4].value;
+        if (category=="Choose category") category = article.category;
         let created_at = e.target[5].value;
+        if (!created_at) created_at = article.created_at;
         let file = e.target[6].files[0];
 
-        const {data,error} = ArticleService.uploadData([{created_at,title,description,content,link,img_id,category}]);
+        // console.log(title);
+        // console.log(description);
+        // console.log(content);
+        // console.log(link);
+        // console.log(category);
+        // console.log(created_at);
+        // console.log(img_id);
+
+        const {data,error} = ArticleService.updateData([{created_at,title,description,content,link,img_id,category}],oldId);
         const {data2,error2} = ArticleService.uploadImage(img_id,file);
+        const {data3, error3} = ArticleService.deleteImage(old_img_id);
         document.getElementById("form_id").reset();
     }
 
@@ -55,7 +81,7 @@ const Update = () => {
             .select()
             .eq('title',e.target[0].value)
             //console.log(data);
-            if (data.length) {console.log(data);setArticleFound(1);}
+            if (data.length) {setArticleFound(1);setOldId(data[0].id)}
             else setArticleFound(2);
         }
         checkArticle();
@@ -67,7 +93,7 @@ const Update = () => {
             <h1 className='text-center font-bold text-4xl py-10'>Update Article</h1>
             <ErrorMsg articleFound={articleFound} />
             {(()=>{
-                if (check) 
+                if (articleFound==1) 
                     return <DataForm onSubmitFunc={updateData}/>
                 else
                 {

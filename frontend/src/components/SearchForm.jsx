@@ -4,7 +4,7 @@ const SearchForm = ({onSubmitFunc}) => {
   return (
     <div className='mx-[25%]  px-10 py-10 rounded-xl mb-10 shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px]'>
         <h2 className='text-2xl font-semibold mb-5'>Select your article</h2>
-        <form className='' onSubmit={onSubmitFunc}>
+        <form id="searchform_id" className='' onSubmit={onSubmitFunc}>
             <label className='text-xl font-semibold py-5'> 
             Title 
             </label>
