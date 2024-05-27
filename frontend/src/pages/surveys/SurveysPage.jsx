@@ -4,7 +4,7 @@ import MainLayout from '/src/components/MainLayout'
 import BreadCrumbs from '../../components/BreadCrumbs'
 import {images} from '../../constants'
 import SuggestedPosts from '../articleDetail/container/SuggestedPosts';
-import ArticleService from '../../services/ArticleService'
+import supabase from '../../config/supabaseClient'
 
 const breadCrumbsData = [
     {name:"Home", link:'/'},
@@ -40,10 +40,16 @@ const SurveysPage = () => {
     const[articles,setArticles] = useState([])
 
   useEffect(()=>{
-    const fetch = async()=>{
-   const {data,error} = await ArticleService.fetchArticles();
-   setArticles(data)
-  }
+    const fetch = async () => {
+        const{data,error} = await supabase
+        .from('articles')
+        .select()
+        .eq('category','Survey')
+        .limit(6)
+        setArticles(data)
+        console.log(data);
+        return {data,error}
+    }
    fetch()
 }
   ,[])
@@ -57,7 +63,7 @@ const SurveysPage = () => {
                 <h1 className='text-[3rem] font-bold mb-7'>Surveys</h1>
                 {articles.map((item=>(
                     <div key={item.id} className='border-[1.5px] border-black p-5 mb-5 rounded-xl flex gap-x-5 h-[12rem] shadow-[5px_5px_0px_0px_rgba(151,151,151)] hover:cursor-pointer'>
-                        <img src={item.image} className='w-[40%] rounded-xl aspect-square'></img>
+                        <img src={import.meta.env.VITE_STORAGE+item.img_id} className='w-[40%] rounded-xl aspect-square'></img>
                         <div className='flex-cols'>
                             <h2 className='text-[1.8rem] mb-1 font-bold'>{item.title}</h2>
                             <div className='h-[50%] mb-1'>
