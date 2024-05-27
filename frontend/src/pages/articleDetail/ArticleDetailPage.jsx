@@ -3,6 +3,9 @@ import MainLayout from '/src/components/MainLayout'
 import BreadCrumbs from '../../components/BreadCrumbs'
 import {images} from '../../constants'
 import SuggestedPosts from './container/SuggestedPosts';
+import { useState,useEffect } from 'react';
+import { useParams } from 'react-router';
+import supabase from '../../config/supabaseClient';
 
 const breadCrumbsData = [
     {name:"Home", link:'/'},
@@ -35,6 +38,21 @@ const postData = [
 
 
 const ArticleDetailPage = () => {
+    const[article,setArticle] = useState([])
+    const params= useParams()
+
+  useEffect(()=>{
+  const fetch = async () => {
+    const{data,error} = await supabase
+    .from('articles')
+    .select()
+    .eq('id',params.id)
+    setArticle(data[0])
+    console.log(data);
+}
+   fetch()
+}
+  ,[])
   return (
     <div>
       <MainLayout>
@@ -42,11 +60,11 @@ const ArticleDetailPage = () => {
             <div className='w-[65%]'>
                 <article className='flex-1 mx-1'>
                 <BreadCrumbs data={breadCrumbsData}/>
-                <h1 className='text-[3rem] font-bold'>Article Title</h1>
-                <h2 className='text-black text-sm opacity-50 mb-10'>Posted on Date- 69 min read</h2>
-                <img src={images.Post1Image} alt="title" className='w-[60%] rounded-xl'/> {/*temporary*/}
+                <h1 className='text-[3rem] font-bold'>{article.title}</h1>
+                <h2 className='text-black text-sm opacity-50 mb-10'>{article.created_at}- 69 min read</h2>
+                <img src={import.meta.env.VITE_STORAGE+article.img_id} alt="title" className='w-[60%] rounded-xl'/> {/*temporary*/}
                 <div className=' mt-[3rem]'>
-                    <p className='text-black text-justify mr-7'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quos, debitis. Aliquam, asperiores? Corrupti eaque molestiae reiciendis, vel velit excepturi, consectetur alias perspiciatis officia minus, iure possimus totam libero exercitationem odit suscipit nulla error quia quibusdam in eligendi repellat ad quasi. Deserunt amet facere rerum excepturi dolorum dolore assumenda minus nulla modi nemo quisquam, atque quo iure alias! Delectus illum nihil nostrum tempore est vero deserunt eum ea odit inventore maiores consequatur vel rerum numquam mollitia, voluptates laborum omnis sunt quisquam id vitae saepe dolorem. Nostrum labore quas ea aperiam animi. Omnis quia facilis laboriosam odio corrupti eligendi iusto et fugiat.
+                    <p className='text-black text-justify mr-7'>{article.content}
 
                     </p>
                 </div>
