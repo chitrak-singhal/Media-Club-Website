@@ -17,11 +17,18 @@ function ErrorMsg({articleFound}) {
             </div>
         )
     }
-    else{
+    else if (articleFound==2){
         return(
             <div className='bg-red-200 text-center p-2 text-lg rounded-xl w-[20%] mx-auto mb-5 font-semibold text-red-950 border-2 border-red-950'>
             <p>Article not found!</p>
         </div>
+        )
+    }
+    else{
+        return(
+            <div className='bg-green-200 text-center p-2 text-lg rounded-xl w-[20%] mx-auto mb-5 font-semibold text-green-950 border-2 border-green-950'>
+                <p>Article updated successfully!</p>
+            </div>
         )
     }
 }
@@ -70,6 +77,7 @@ const Update = () => {
         const {data2,error2} = ArticleService.uploadImage(img_id,file);
         const {data3, error3} = ArticleService.deleteImage(old_img_id);
         document.getElementById("form_id").reset();
+        setArticleFound(4);
     }
 
     async function handleSearch(e){
