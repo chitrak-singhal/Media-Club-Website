@@ -5,7 +5,8 @@ import {Routes,Route, Router} from 'react-router-dom'
 
 import HomePage from './pages/home/HomePage'
 import ArticleDetailPage from './pages/articleDetail/ArticleDetailPage'
-import Articles from './pages/articles/Articles'
+import ArticlesPage from './pages/articles/ArticlesPage'
+import SurveysPage from './pages/surveys/SurveysPage'
 
 function App() {
 
@@ -14,7 +15,8 @@ function App() {
       <Routes>
         <Route index path="/" element={<HomePage />}/>
         <Route path='/blog/:id' element={<ArticleDetailPage />}/>
-        <Route path='/blog/' element={<Articles/>}/>
+        <Route path='/blog/' element={<ArticlesPage/>}/>
+        <Route path='/surveys/' element={<SurveysPage/>}/>
       </Routes>
     </div>
   )

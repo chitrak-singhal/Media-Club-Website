@@ -6,7 +6,7 @@ const navItemsInfo = [
     {name:"Home" , type:"link", link:"/"}, //type:"dropdown", items:"sasasa"
     {name:"Articles",type:"link",link:"/blog"},
     {name:"Interviews",type:"link"},
-    {name:"Surveys",type:"link"},
+    {name:"Surveys",type:"link",link:"/surveys"},
     {name:"About",type:"link"}
 ]
 
