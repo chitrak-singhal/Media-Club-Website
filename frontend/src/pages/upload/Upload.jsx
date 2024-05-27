@@ -6,22 +6,35 @@ import MainLayout from '../../components/MainLayout';
 
 const Upload = () => {
     async function uploadData(e){
+        //console.log(e,'hi');
         e.preventDefault();
         let img_id = uuidv4();
-        console.log(e,'hi');
-        // let file = e.target[0].files[0];
-        // const {data,error}=await supabase
-        // .storage
-        // .from('images')
-        // .upload(img_id,file)
-        // console.log(data, error);
+        let title = e.target[0].value;
+        let description = e.target[1].value;
+        let content = e.target[2].value;
+        let link = e.target[3].value;
+        let category = e.target[4].value;
+        let created_at = e.target[5].value;
+        let file = e.target[6].files[0];
+
+        const {data,error} = ArticleService.uploadData([{created_at,title,description,content,link,img_id,category}]);
+        const {data2,error2} = ArticleService.uploadImage(img_id,file);
+        //console.log(data,error);
+        // console.log(title);
+        // console.log(description);
+        // console.log(content);
+        // console.log(link);
+        // console.log(category);
+        // console.log(date);
+        // console.log(file);
+        document.getElementById("form_id").reset();
     }
   return (
     <div className=''>
         <MainLayout>
             <h1 className='text-center font-bold text-4xl py-10'>Upload New Article</h1>
             <div className='mx-[25%]  px-10 py-10 rounded-xl mb-10 shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px]'>
-                <form className='' onSubmit={(e)=>uploadData(e)}>
+                <form id="form_id" className='' onSubmit={(e)=>uploadData(e)}>
                     <label className='text-xl font-semibold py-5'> 
                     Title 
                     </label>
@@ -54,6 +67,19 @@ const Upload = () => {
                     Category
                     </label>
                     <br></br>
+                    <select className='px-2 h-[2rem] w-[70%] bg-gray-100 border-[1px] border-gray-200 rounded-md mt-2 mb-5 shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)]'>
+                        <option defaultValue="Choose Category" >Choose category</option>
+                        <option value="Article">Article</option>
+                        <option value="Interview">Interview</option>
+                        <option value="Survey">Survey</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    <br></br>
+
+                    <label className='text-xl font-semibold py-5'> 
+                    Date
+                    </label>
+                    <br></br>
                     <input type="text" className='px-2 h-[2rem] w-[20rem] bg-gray-100 border-[1px] border-gray-200 rounded-md mt-2 mb-5 shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)]'>
                     </input> <br></br>
 
@@ -63,6 +89,9 @@ const Upload = () => {
                     <input type="file" className='px-2 file:border-[2px] file:border-black mt-2 file:mr-7 file:rounded-lg file:p-2 font-semibold file:bg-white file:hover:bg-black file:hover:text-white file:transition-all file:duration-300 file:cursor-pointer'
                     >
                     </input> <br></br>
+                    <button type="submit" className='mt-5 group mx-auto flex items-center gap-x-2 font-bold text-black border-2 border-black px-6 py-3 rounded-lg hover:bg-black hover:text-white transition-all duration-300'>
+                        Upload
+                    </button>
                 </form>
             </div>
         </MainLayout>
