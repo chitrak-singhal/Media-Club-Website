@@ -43,6 +43,14 @@ const updateImage = async (img_id,file) => {
     return {data,error}
     // console.log(data, error);
 }
+const deleteData = async (id) => {
+    const{data,error} = await supabase
+    .from('articles')
+    .delete()
+    .eq('id',id)
+    //console.log('hi')
+    return {data,error}
+}
 const deleteImage = async (img_id) => {
     const {data,error}=await supabase
    .storage
@@ -61,4 +69,5 @@ export default{
     updateData,
     updateImage,
     deleteImage,
+    deleteData,
 }

@@ -9,6 +9,7 @@ import ArticlesPage from './pages/articles/ArticlesPage'
 import SurveysPage from './pages/surveys/SurveysPage'
 import Upload from './pages/upload/Upload'
 import Update from './pages/update/Update'
+import Delete from './pages/delete/Delete'
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
         <Route path='/blog/' element={<ArticlesPage/>}/>
         <Route path='/upload/' element={<Upload/>}/>
         <Route path='/update/' element={<Update/>}/>
+        <Route path='/delete/' element={<Delete/>}/>
         <Route path='/surveys/' element={<SurveysPage/>}/>
       </Routes>
     </div>
