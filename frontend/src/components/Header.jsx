@@ -38,9 +38,11 @@ const Header = () => {
                 </ul>
             </div>
             <div className='w-1/3 flex justify-end'>
+                <Link to={'/login'}>
                 <button className=' text-white border-2 border-white px-6 pb-2 pt-1.5 rounded-full font-semibold hover:bg-white hover:text-black transition-all duration-300'>
                     Sign in
                 </button>
+                </Link>
             </div>
         </header>
     </section>
