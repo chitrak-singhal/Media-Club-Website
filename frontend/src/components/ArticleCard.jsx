@@ -10,7 +10,9 @@ const ArticleCard = ({className,item}) => {
       <img src={import.meta.env.VITE_STORAGE+item.img_id} alt="title" className='relative object-cover object-center h-auto'/>
       <div className='relative p-5 z-20 bg-white'>
         <h2 className='z-20 font-roboto font-bold text-xl'>{item.title}</h2>
-        <p className='text-sm my-2'>{item.description}</p>
+        <div className='h-[5rem] mb-1'>
+          <p className='h-full text-wrap truncate ... text-sm my-2'>{item.description}</p>
+        </div>
         <p className='text-sm text-gray-400 italic'>{item.created_at}</p>
       </div>
       </Link>

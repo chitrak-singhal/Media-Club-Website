@@ -2,38 +2,13 @@ import React from 'react'
 import { useEffect,useState } from 'react'
 import MainLayout from '/src/components/MainLayout'
 import BreadCrumbs from '../../components/BreadCrumbs'
-import {images} from '../../constants'
 import SuggestedPosts from '../articleDetail/container/SuggestedPosts';
 import supabase from '../../config/supabaseClient'
 
 const breadCrumbsData = [
     {name:"Home", link:'/'},
     {name:"Surveys", link:'/surveys'},
-]; //temporary
-const postData = [
-    {
-        _id: "1",
-        image: images.Post1Image,
-        title: "We Are Expanding",
-        createdAt:"Date",
-        description:"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Obcaecati placeat error delectus repellat voluptas veniam animi excepturi dolorum architecto iusto."
-    },
-    {
-        _id: "2",
-        image: images.Post1Image,
-        title: "We Are Expanding",
-        createdAt:"Date",
-        description:"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Obcaecati placeat error delectus repellat voluptas veniam animi excepturi dolorum architecto iusto."
-    },
-    {
-        _id: "3",
-        image: images.Post1Image,
-        title: "We Are Expanding",
-        createdAt:"Date",
-        description:"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Obcaecati placeat error delectus repellat voluptas veniam animi excepturi dolorum architecto iusto."
-    }
-]; //temporary //above fields are according to mongodb
-
+]; 
 
 
 const SurveysPage = () => {
