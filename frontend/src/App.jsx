@@ -15,6 +15,7 @@ import PrivateRoutes from './components/PrivateRoute'
 import Manage from './pages/manage/Manage'
 
 function App() {
+  const[session, setSession] = useState(false);
 
   return (
     <div className='App font-opensans'>

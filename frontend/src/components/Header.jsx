@@ -1,6 +1,8 @@
 import React from 'react'
 import { images } from '../constants'
-import { Link } from 'react-router-dom'
+import { Link, Navigate } from 'react-router-dom'
+import supabase from '../config/supabaseClient'
+import { useState, useEffect } from 'react'
 
 const navItemsInfo = [
     {name:"Home" , type:"link", link:"/"}, //type:"dropdown", items:"sasasa"
@@ -20,7 +22,46 @@ const NavItem = ({name,link}) =>{
     )
 }
 
+function LogButton({session,setSession}){
+    
+    console.log(session,'header');
+    async function signOut() {
+        const { error } = await supabase.auth.signOut()
+        setSession();
+      }
+    if (!session){
+        return(
+        <Link to={'/login'}>
+        <button className=' text-white border-2 border-white px-6 pb-2 pt-1.5 rounded-full font-semibold hover:bg-white hover:text-black transition-all duration-300'>
+            Sign in
+        </button>
+        </Link>
+        )
+    }
+    else{
+        return (
+            <Link to={'/login'}>
+            <button onClick={signOut} className=' text-white border-2 border-white px-6 pb-2 pt-1.5 rounded-full font-semibold hover:bg-white hover:text-black transition-all duration-300'>
+                Sign out
+            </button>
+            </Link>
+        )
+    }
+}
+
 const Header = () => {
+   const [session, setSession] = useState();
+    useEffect(()=>{
+            const fetch = async () => {
+                const s = await supabase.auth.getSession();
+                if (s.data.session)
+                    setSession(true);
+                else
+                    setSession(false);
+        }
+            fetch()
+        }
+    ,[session])
   return (
     <section className='bg-black sticky top-0 z-50'>
         <header className='mx-auto w-full container px-5 flex justify-center py-4 bg-black items-center font-semibold position:fixed'>
@@ -38,11 +79,7 @@ const Header = () => {
                 </ul>
             </div>
             <div className='w-1/3 flex justify-end'>
-                <Link to={'/login'}>
-                <button className=' text-white border-2 border-white px-6 pb-2 pt-1.5 rounded-full font-semibold hover:bg-white hover:text-black transition-all duration-300'>
-                    Sign in
-                </button>
-                </Link>
+                <LogButton session={session} setSession={setSession}/>
             </div>
         </header>
     </section>

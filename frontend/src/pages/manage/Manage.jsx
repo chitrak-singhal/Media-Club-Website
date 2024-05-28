@@ -1,9 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import MainLayout from '../../components/MainLayout'
 
 const Manage = () => {
   return (
-    <div className='h-screen flex'>
+    <MainLayout>
+    <div className='h-screen flex-cols mt-20'>
     <div className=' h-[22rem] w-[22rem] mx-auto my-auto rounded-xl px-5 pt-5 shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px]'>
       <h1 className='text-3xl font-bold text-center'>Manage</h1>
       <div className='mt-11'>
@@ -25,6 +27,7 @@ const Manage = () => {
       </div>
     </div>
     </div>
+    </MainLayout>
   )
 }
 
