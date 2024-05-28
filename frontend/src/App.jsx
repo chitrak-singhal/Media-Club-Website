@@ -12,6 +12,7 @@ import Update from './pages/update/Update'
 import Delete from './pages/delete/Delete'
 import Login from './pages/login/Login'
 import PrivateRoutes from './components/PrivateRoute'
+import Manage from './pages/manage/Manage'
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
         <Route path='/blog/:id' element={<ArticleDetailPage />}/>
         <Route path='/blog/' element={<ArticlesPage/>}/>
         <Route element={<PrivateRoutes/>}>
+            <Route path ='/manage/' element={<Manage/>}/>
             <Route path='/upload/' element={<Upload/>}/>
             <Route path='/update/' element={<Update/>}/>
             <Route path='/delete/' element={<Delete/>}/>
