@@ -4,6 +4,7 @@ import MainLayout from '/src/components/MainLayout'
 import BreadCrumbs from '../../components/BreadCrumbs'
 import SuggestedPosts from '../articleDetail/container/SuggestedPosts';
 import supabase from '../../config/supabaseClient'
+import { Link } from 'react-router-dom';
 
 const breadCrumbsData = [
     {name:"Home", link:'/'},
@@ -36,7 +37,8 @@ const ArticlesPage = () => {
                 <BreadCrumbs data={breadCrumbsData}/>
                 <h1 className='text-[3rem] font-bold mb-7'>Articles</h1>
                 {articles.map((item=>(
-                    <div key={item.id} className='border-[1.5px] border-black p-5 mb-5 rounded-xl flex gap-x-5 h-[12rem] shadow-[5px_5px_0px_0px_rgba(151,151,151)] hover:cursor-pointer'>
+                  <Link key={item.id} to={"/blog/"+item.id}>
+                    <div className='border-[1.5px] border-black p-5 mb-5 rounded-xl flex gap-x-5 h-[12rem] shadow-[5px_5px_0px_0px_rgba(151,151,151)] hover:cursor-pointer'>
                         <img src={import.meta.env.VITE_STORAGE+item.img_id} className='h-full rounded-xl aspect-square'></img>
                         <div className='flex-cols'>
                             <h2 className='text-[1.8rem] mb-1 font-bold'>{item.title}</h2>
@@ -46,6 +48,7 @@ const ArticlesPage = () => {
                             <p className='opacity-50'>{item.created_at}</p>
                         </div>
                     </div>
+                    </Link>
                 )))}
             </div>
             <div className='w-[38%]'>
