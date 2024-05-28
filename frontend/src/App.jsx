@@ -13,6 +13,7 @@ import Delete from './pages/delete/Delete'
 import Login from './pages/login/Login'
 import PrivateRoutes from './components/PrivateRoute'
 import Manage from './pages/manage/Manage'
+import About from './pages/about/About'
 
 function App() {
   const[session, setSession] = useState(false);
@@ -31,6 +32,7 @@ function App() {
         </Route>
         <Route path='/login/' element={<Login/>}/>
         <Route path='/surveys/' element={<SurveysPage/>}/>
+        <Route path='/about/' element={<About/>}/>
       </Routes>
     </div>
   )

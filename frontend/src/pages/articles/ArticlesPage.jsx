@@ -2,7 +2,7 @@ import React from 'react'
 import { useEffect,useState } from 'react'
 import MainLayout from '/src/components/MainLayout'
 import BreadCrumbs from '../../components/BreadCrumbs'
-import SuggestedPosts from '../articleDetail/container/SuggestedPosts';
+import SuggestedPosts from '../../components/SuggestedPosts';
 import supabase from '../../config/supabaseClient'
 import { Link } from 'react-router-dom';
 

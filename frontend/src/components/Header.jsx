@@ -9,7 +9,7 @@ const navItemsInfo = [
     {name:"Articles",type:"link",link:"/blog"},
     {name:"Interviews",type:"link"},
     {name:"Surveys",type:"link",link:"/surveys"},
-    {name:"About",type:"link"}
+    {name:"About",type:"link",link:"/about"}
 ]
 
 const NavItem = ({name,link}) =>{
@@ -24,7 +24,7 @@ const NavItem = ({name,link}) =>{
 
 function LogButton({session,setSession}){
     
-    console.log(session,'header');
+    //console.log(session,'header');
     async function signOut() {
         const { error } = await supabase.auth.signOut()
         setSession();

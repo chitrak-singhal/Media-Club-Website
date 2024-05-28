@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState,useEffect } from 'react'
-import ArticleService from '../../../services/ArticleService'
+import ArticleService from '../services/ArticleService'
 import { Link } from 'react-router-dom'
 
 const SuggestedPosts = ({className,header,posts=[]}) => {
