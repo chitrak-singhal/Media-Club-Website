@@ -33,6 +33,7 @@ const Upload = () => {
 
         const {data,error} = ArticleService.uploadData([{created_at,title,description,content,link,img_id,category}]);
         const {data2,error2} = ArticleService.uploadImage(img_id,file);
+        //console.log(data2)
         document.getElementById("form_id").reset();
         setArticleUploaded(true);
     }
