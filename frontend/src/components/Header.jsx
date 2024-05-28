@@ -7,7 +7,7 @@ import { useState, useEffect } from 'react'
 const navItemsInfo = [
     {name:"Home" , type:"link", link:"/"}, //type:"dropdown", items:"sasasa"
     {name:"Articles",type:"link",link:"/blog"},
-    {name:"Interviews",type:"link"},
+    {name:"Interviews",type:"link", link:"/interviews"},
     {name:"Surveys",type:"link",link:"/surveys"},
     {name:"About",type:"link",link:"/about"}
 ]

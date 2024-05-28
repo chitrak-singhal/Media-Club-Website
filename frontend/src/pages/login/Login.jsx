@@ -4,7 +4,7 @@ import { Navigate } from 'react-router-dom';
 import MainLayout from '../../components/MainLayout';
 
 function Msg({doWhat}) {
-  console.log(doWhat,'doWhat');
+ // console.log(doWhat,'doWhat');
   if (doWhat==0){
       return(<div className='mt-20'> </div>)
   }
