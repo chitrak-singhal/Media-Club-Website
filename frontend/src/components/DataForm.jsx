@@ -50,7 +50,7 @@ const DataForm = ({onSubmitFunc}) => {
                     Date
                     </label>
                     <br></br>
-                    <input type="text" className='px-2 h-[2rem] w-[20rem] bg-gray-100 border-[1px] border-gray-200 rounded-md mt-2 mb-5 shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)]'>
+                    <input type="date" className='px-2 h-[2rem] w-[20rem] bg-gray-100 border-[1px] border-gray-200 rounded-md mt-2 mb-5 shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)]'>
                     </input> <br></br>
 
                     <label className='text-xl font-semibold py-5'> 

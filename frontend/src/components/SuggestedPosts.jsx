@@ -3,6 +3,19 @@ import { useState,useEffect } from 'react'
 import ArticleService from '../services/ArticleService'
 import { Link } from 'react-router-dom'
 
+function formatDateWithDateObject(ymdDate) {
+  const date = new Date(ymdDate);
+  const monthNames = [
+    "January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"
+  ];
+  const day = String(date.getDate()).padStart(2, '0');
+  const monthName = monthNames[date.getMonth()];
+  const year = date.getFullYear();
+  const dmyDate = `${day} ${monthName} ${year}`;
+  return dmyDate;
+}
+
 const SuggestedPosts = ({className,header,posts=[]}) => {
 
   const[articles,setArticles] = useState([])
@@ -38,7 +51,7 @@ const SuggestedPosts = ({className,header,posts=[]}) => {
                         <div className='h-[50%] mb-1'>
                           <p className='h-full line-clamp-3'>{item.description}</p>
                         </div>
-                        <p className='opacity-50'>{item.created_at}</p>
+                        <p className='opacity-50'>{formatDateWithDateObject(item.created_at)}</p>
                     </div>
                 </div>
             )
@@ -54,7 +67,7 @@ const SuggestedPosts = ({className,header,posts=[]}) => {
                     <div className='h-[50%] mb-1'>
                       <p className='h-full line-clamp-3'>{item.description}</p>
                     </div>
-                    <p className='opacity-50'>{item.created_at}</p>
+                    <p className='opacity-50'>{formatDateWithDateObject(item.created_at)}</p>
                 </div>
             </div>
             
@@ -73,7 +86,7 @@ const SuggestedPosts = ({className,header,posts=[]}) => {
                     <div className='h-[50%] mb-1'>
                       <p className='h-full line-clamp-3'>{item.description}</p>
                     </div>
-                    <p className='opacity-50'>{item.created_at}</p>
+                    <p className='opacity-50 italic'>{formatDateWithDateObject(item.created_at)}</p>
                 </div>
             </div>
             </a>

@@ -4,6 +4,7 @@ const fetchArticles = async () => {
     const{data,error} = await supabase
     .from('articles')
     .select('*')
+    .order('created_at',{ascending:false})
     .limit(6)
     return {data,error}
 }

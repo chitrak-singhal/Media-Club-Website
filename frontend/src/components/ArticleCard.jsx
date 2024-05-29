@@ -1,12 +1,32 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
+function formatDateWithDateObject(ymdDate) {
+  // Create a new Date object from the input date
+  const date = new Date(ymdDate);
+
+  // Array of month names
+  const monthNames = [
+    "January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"
+  ];
+
+  // Extract the day, month, and year
+  const day = String(date.getDate()).padStart(2, '0');
+  const monthName = monthNames[date.getMonth()]; // Months are zero-indexed
+  const year = date.getFullYear();
+
+  // Reformat the date to day-month-year
+  const dmyDate = `${day} ${monthName} ${year}`;
+
+  return dmyDate;
+}
+
+
 const ArticleCard = ({className,item}) => {
   if (item.category=='Interview'){
     return (
       <div className={`relative group rounded-xl overflow-hidden shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] ${className} `}>
-          <div className='inset-0 absolute z-10 h-full w-full bg-black opacity-0 group-hover:opacity-30 transition-all duration-300'>
-          </div>
           <iframe
             width="443.75"
             height="443.75"
@@ -22,7 +42,7 @@ const ArticleCard = ({className,item}) => {
           <div className='h-[5rem] mb-1'>
             <p className='h-full line-clamp-4 text-sm my-2'>{item.description}</p>
           </div>
-          <p className='text-sm text-gray-400 italic'>{item.created_at}</p>
+          <p className='text-sm text-gray-400 italic'>{formatDateWithDateObject(item.created_at)}</p>
         </div>
       </div>
     )
@@ -39,7 +59,7 @@ const ArticleCard = ({className,item}) => {
         <div className='h-[5rem] mb-1'>
           <p className='h-full line-clamp-4 text-sm my-2'>{item.description}</p>
         </div>
-        <p className='text-sm text-gray-400 italic'>{item.created_at}</p>
+        <p className='text-sm text-gray-400 italic'>{formatDateWithDateObject(item.created_at)}</p>
       </div>
       </Link>
     </div>
@@ -56,7 +76,7 @@ const ArticleCard = ({className,item}) => {
           <div className='h-[5rem] mb-1'>
             <p className='h-full w-full line-clamp-4 text-sm my-2'>{item.description}</p>
           </div>
-          <p className='text-sm text-gray-400 italic'>{item.created_at}</p>
+          <p className='text-sm text-gray-400 italic'>{formatDateWithDateObject(item.created_at)}</p>
         </div>
         </a>
       </div>

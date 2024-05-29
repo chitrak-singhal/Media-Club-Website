@@ -6,6 +6,19 @@ import SuggestedPosts from '../../components/SuggestedPosts';
 import supabase from '../../config/supabaseClient'
 import { Link } from 'react-router-dom';
 
+function formatDateWithDateObject(ymdDate) {
+  const date = new Date(ymdDate);
+  const monthNames = [
+    "January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"
+  ];
+  const day = String(date.getDate()).padStart(2, '0');
+  const monthName = monthNames[date.getMonth()];
+  const year = date.getFullYear();
+  const dmyDate = `${day} ${monthName} ${year}`;
+  return dmyDate;
+}
+
 const breadCrumbsData = [
     {name:"Home", link:'/'},
     {name:"Blog", link:'/blog'},
@@ -46,7 +59,7 @@ const ArticlesPage = () => {
                             <div className='h-[50%] mb-1'>
                             <p className='h-full text-wrap truncate ...'>{item.description}</p>
                             </div>
-                            <p className='opacity-50'>{item.created_at}</p>
+                            <p className='opacity-50 italic'>{formatDateWithDateObject(item.created_at)}</p>
                         </div>
                     </div>
                     </Link>
