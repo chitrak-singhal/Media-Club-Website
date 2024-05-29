@@ -40,11 +40,18 @@ function LogButton({session,setSession}){
     }
     else{
         return (
+            <div className='flex gap-x-5'>
+            <Link to={'/manage'}>
+            <button className=' text-white border-2 border-white px-6 pb-2 pt-1.5 rounded-full font-semibold hover:bg-white hover:text-black transition-all duration-300'>
+                Manage
+            </button>
+            </Link>
             <Link to={'/login'}>
             <button onClick={signOut} className=' text-white border-2 border-white px-6 pb-2 pt-1.5 rounded-full font-semibold hover:bg-white hover:text-black transition-all duration-300'>
                 Sign out
             </button>
             </Link>
+            </div>
         )
     }
 }
