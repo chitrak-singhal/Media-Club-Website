@@ -10,32 +10,21 @@ import supabase from '../../config/supabaseClient';
 const breadCrumbsData = [
     {name:"Home", link:'/'},
     {name:"Blog", link:'/blog'},
-    {name:"Article title", link:'/blog/:id'},
+    {name:"Article", link:'/blog/:id'},
 ]; //temporary
-const postData = [
-    {
-        _id: "1",
-        image: images.Post1Image,
-        title: "We Are Expanding",
-        createdAt:"Date",
-        description:"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Obcaecati placeat error delectus repellat voluptas veniam animi excepturi dolorum architecto iusto."
-    },
-    {
-        _id: "2",
-        image: images.Post1Image,
-        title: "We Are Expanding",
-        createdAt:"Date",
-        description:"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Obcaecati placeat error delectus repellat voluptas veniam animi excepturi dolorum architecto iusto."
-    },
-    {
-        _id: "3",
-        image: images.Post1Image,
-        title: "We Are Expanding",
-        createdAt:"Date",
-        description:"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Obcaecati placeat error delectus repellat voluptas veniam animi excepturi dolorum architecto iusto."
-    }
-]; //temporary //above fields are according to mongodb
 
+function formatDateWithDateObject(ymdDate) {
+  const date = new Date(ymdDate);
+  const monthNames = [
+    "January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"
+  ];
+  const day = String(date.getDate()).padStart(2, '0');
+  const monthName = monthNames[date.getMonth()];
+  const year = date.getFullYear();
+  const dmyDate = `${day} ${monthName} ${year}`;
+  return dmyDate;
+}
 
 const ArticleDetailPage = () => {
     const[article,setArticle] = useState([])
@@ -61,7 +50,7 @@ const ArticleDetailPage = () => {
                 <article className='flex-1 mx-1'>
                 <BreadCrumbs data={breadCrumbsData}/>
                 <h1 className='text-[3rem] font-bold'>{article.title}</h1>
-                <h2 className='text-black text-sm opacity-50 mb-10'>{article.created_at}- 69 min read</h2>
+                <h2 className='text-black text-sm opacity-50 mb-10'>{formatDateWithDateObject(article.created_at)}- 69 min read</h2>
                 <img src={import.meta.env.VITE_STORAGE+article.img_id} alt="title" className='w-[60%] rounded-xl'/> {/*temporary*/}
                 <div className=' mt-[3rem]'>
                     <p className='text-black text-justify mr-7'>{article.content}
