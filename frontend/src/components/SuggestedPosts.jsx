@@ -22,7 +22,7 @@ const SuggestedPosts = ({className,header,posts=[]}) => {
 
   useEffect(()=>{
     const fetch = async()=>{
-   const {data,error} = await ArticleService.fetchArticles();
+   const {data,error} = await ArticleService.fetchArticles(0,5);
    setArticles(data)
   }
    fetch()

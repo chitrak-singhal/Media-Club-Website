@@ -1,9 +1,22 @@
 import React from 'react'
 import ArticleCard from '../../../components/ArticleCard'
 import { FaArrowRight } from "react-icons/fa";
+import { FaArrowLeft } from "react-icons/fa6";
 
-const Articles = ({articles}) => {
-  //console.log(articles)
+ function prevPage(page,setPage){
+  if (page==0) return;
+  setPage(page-1);
+  return;
+ }
+ 
+ function nextPage(page,setPage,maxcount){
+  if (page*6>maxcount) return;
+  setPage(page+1);
+  return;
+ }
+
+const Articles = ({articles,page,setPage, maxcount}) => {
+  //console.log(page,setPage,maxcount);
   return (
     <section className='flex flex-col container mx-auto  px-5 py-5 mt-5'>
       <div className='flex flex-wrap gap-x-10 gap-y-10 justify-center pb-10'>
@@ -14,31 +27,17 @@ const Articles = ({articles}) => {
       
       </div>
 
-      <div class="flex justify-center mt-5 mb-4">
-        <a href="#" class="flex items-center px-4 py-2 mx-1 text-gray-500 bg-white rounded-md cursor-not-allowed dark:bg-gray-800 dark:text-gray-600">
-            previous
-        </a>
-
-        <a href="#" class="items-center hidden px-4 py-2 mx-1 text-gray-700 transition-colors duration-300 transform bg-white rounded-md sm:flex dark:bg-gray-800 dark:text-gray-200 hover:bg-blue-600 dark:hover:bg-blue-500 hover:text-white dark:hover:text-gray-200">
-            1
-        </a>
-
-        <a href="#" class="items-center hidden px-4 py-2 mx-1 text-gray-700 transition-colors duration-300 transform bg-white rounded-md sm:flex dark:bg-gray-800 dark:text-gray-200 hover:bg-blue-600 dark:hover:bg-blue-500 hover:text-white dark:hover:text-gray-200">
-            2
-        </a>
-
-        <a href="#" class="items-center hidden px-4 py-2 mx-1 text-gray-700 transition-colors duration-300 transform bg-white rounded-md sm:flex dark:bg-gray-800 dark:text-gray-200 hover:bg-blue-600 dark:hover:bg-blue-500 hover:text-white dark:hover:text-gray-200">
-            3
-        </a>
-
-        <a href="#" class="flex items-center px-4 py-2 mx-1 text-gray-700 transition-colors duration-300 transform bg-white rounded-md dark:bg-gray-800 dark:text-gray-200 hover:bg-blue-600 dark:hover:bg-blue-500 hover:text-white dark:hover:text-gray-200">
-            Next
-        </a>
+      <div className="flex justify-center mt-5 mb-4 gap-x-10">
+        <button onClick={()=>prevPage(page,setPage)} className='w-[9rem] group flex justify-center items-center gap-x-2 font-bold text-black border-2 border-black px-6 py-3 rounded-lg hover:bg-black hover:text-white transition-all duration-300'> 
+        <FaArrowLeft className='w-3 h-3'/>
+          <span>Previous</span>
+        </button>
+        
+        <button onClick={()=>nextPage(page,setPage,maxcount)} className='w-[9rem] group justify-center flex items-center gap-x-2 font-bold text-black border-2 border-black px-6 py-3 rounded-lg hover:bg-black hover:text-white transition-all duration-300'>
+          <span>Next</span>
+          <FaArrowRight className='w-3 h-3'/>
+        </button>
       </div>
-      {/* <button className='group mx-auto flex items-center gap-x-2 font-bold text-black border-2 border-black px-6 py-3 rounded-lg hover:bg-black hover:text-white transition-all duration-300'>
-        <span>Explore</span>
-        <FaArrowRight className='w-3 h-3'/>
-      </button> */}
     </section>
   )
 }

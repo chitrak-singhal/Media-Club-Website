@@ -1,11 +1,11 @@
 import supabase from "../config/supabaseClient"
 
-const fetchArticles = async () => {
+const fetchArticles = async (from, to) => {
     const{data,error} = await supabase
     .from('articles')
     .select('*')
     .order('created_at',{ascending:false})
-    .limit(6)
+    .range(from,to)
     return {data,error}
 }
 
