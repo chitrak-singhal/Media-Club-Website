@@ -36,7 +36,8 @@ const ArticlesPage = () => {
             <div className='w-[65%] flex-cols pr-8'>
                 <BreadCrumbs data={breadCrumbsData}/>
                 <h1 className='text-[3rem] font-bold mb-7'>Articles</h1>
-                {articles.map((item=>(
+                {articles.map((item=> {
+                  return (
                   <Link key={item.id} to={"/blog/"+item.id}>
                     <div className='border-[1.5px] border-black p-5 mb-5 rounded-xl flex gap-x-5 h-[12rem] shadow-[5px_5px_0px_0px_rgba(151,151,151)] hover:cursor-pointer'>
                         <img src={import.meta.env.VITE_STORAGE+item.img_id} className='h-full rounded-xl aspect-square'></img>
@@ -49,7 +50,7 @@ const ArticlesPage = () => {
                         </div>
                     </div>
                     </Link>
-                )))}
+                )}))}
             </div>
             <div className='w-[38%]'>
                 <SuggestedPosts header="Latest Posts" posts = {articles}/>
