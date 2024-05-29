@@ -60,7 +60,7 @@ const ArticleDetailPage = () => {
                 </article>
             </div>
             <div className='w-[38%]'>
-                <SuggestedPosts header="Latest Posts" posts = {postData}/>
+                <SuggestedPosts header="Latest Posts"/>
             </div>
         </section>
       </MainLayout>
