@@ -10,9 +10,12 @@ import { FaArrowLeft } from "react-icons/fa6";
  }
  
  function nextPage(page,setPage,maxcount){
-  if (page*6>maxcount) return;
+  if (Number((page+1)*6)>=Number(maxcount)) {
+    setPage(0);
+    return;}
+  else{
   setPage(page+1);
-  return;
+  return;}
  }
 
 const Articles = ({articles,page,setPage, maxcount}) => {

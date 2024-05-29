@@ -20,7 +20,7 @@ const HomePage = () => {
     setMaxCount(count);
     }
     getCount();
-  },[])
+  },[page])
 
   useEffect(()=>{
     const fetch = async()=>{
