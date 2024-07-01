@@ -49,7 +49,7 @@ const ArticleCard = ({className,item}) => {
       <div className='relative p-5 z-20 bg-white'>
         <h2 className='z-20 font-roboto font-bold text-xl h-[1.75rem] overflow-hidden truncate ...'>{item.title}</h2>
         <div className='h-[5rem] mb-1'>
-          <p className='h-full line-clamp-4 text-sm my-2'>{item.description}</p>
+          <p className='h-full line-clamp-4 text-sm my-2 text-justify'>{item.description}</p>
         </div>
         <p className='text-sm text-gray-400 italic'>{formatDateWithDateObject(item.created_at)}</p>
       </div>

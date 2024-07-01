@@ -19,17 +19,17 @@ function Msg({articleUploaded}) {
 
 const Upload = () => {
     const [articleUploaded, setArticleUploaded] = useState(false);
-    async function uploadData(e){
-        //console.log(e,'hi');
+    async function uploadData(e,content){
+        console.log(e, content,'hi');
         e.preventDefault();
         let img_id = uuidv4();
         let title = e.target[0].value;
         let description = e.target[1].value;
-        let content = e.target[2].value;
-        let link = e.target[3].value;
-        let category = e.target[4].value;
-        let created_at = e.target[5].value;
-        let file = e.target[6].files[0];
+        // // let content = e.target[2].value;
+        let link = e.target[11].value;
+        let category = e.target[12].value;
+        let created_at = e.target[13].value;
+        let file = e.target[14].files[0];
 
         const {data,error} = ArticleService.uploadData([{created_at,title,description,content,link,img_id,category}]);
         const {data2,error2} = ArticleService.uploadImage(img_id,file);

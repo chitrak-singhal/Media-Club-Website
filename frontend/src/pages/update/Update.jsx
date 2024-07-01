@@ -35,7 +35,7 @@ function ErrorMsg({articleFound}) {
 const Update = () => {
     const [articleFound, setArticleFound]=useState(0); //0 initial //1 green // 2 red
     const [oldId, setOldId] = useState();
-    async function updateData(e){
+    async function updateData(e,content){
         //console.log(e,'hi');
         e.preventDefault();
         console.log(oldId);
@@ -55,15 +55,15 @@ const Update = () => {
         if (!title) title = article.title;
         let description = e.target[1].value;
         if (!description) description = article.description;
-        let content = e.target[2].value;
-        if (!content) content = article.content;
-        let link = e.target[3].value;
+        let new_content = content;
+        if (!new_content) new_content = article.content;
+        let link = e.target[11].value;
         if (!link) link = article.link;
-        let category = e.target[4].value;
+        let category = e.target[12].value;
         if (category=="Choose category") category = article.category;
-        let created_at = e.target[5].value;
+        let created_at = e.target[13].value;
         if (!created_at) created_at = article.created_at;
-        let file = e.target[6].files[0];
+        let file = e.target[14].files[0];
 
         // console.log(title);
         // console.log(description);
@@ -73,7 +73,7 @@ const Update = () => {
         // console.log(created_at);
         // console.log(img_id);
 
-        const {data,error} = ArticleService.updateData([{created_at,title,description,content,link,img_id,category}],oldId);
+        const {data,error} = ArticleService.updateData([{created_at,title,description,new_content,link,img_id,category}],oldId);
         const {data2,error2} = ArticleService.uploadImage(img_id,file);
         const {data3, error3} = ArticleService.deleteImage(old_img_id);
         document.getElementById("form_id").reset();

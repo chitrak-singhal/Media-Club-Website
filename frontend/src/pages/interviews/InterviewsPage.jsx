@@ -51,7 +51,7 @@ const InterviewsPage = () => {
                         <div className='flex-cols'>
                             <h2 className='text-[1.8rem] mb-1 font-bold h-[3rem] overflow-hidden'>{item.title}</h2>
                             <div className='h-[70%] mb-1'>
-                            <p className='h-full text-wrap truncate ...'>{item.description}</p>
+                            <p className='h-full text-wrap truncate ... text-justify'>{item.description}</p>
                             </div>
                             <p className='opacity-50'>{item.created_at}</p>
                         </div>

@@ -52,10 +52,8 @@ const ArticleDetailPage = () => {
                 <h1 className='text-[3rem] font-bold'>{article.title}</h1>
                 <h2 className='text-black text-sm opacity-50 mb-10'>{formatDateWithDateObject(article.created_at)}- 69 min read</h2>
                 <img src={import.meta.env.VITE_STORAGE+article.img_id} alt="title" className='w-[60%] rounded-xl'/> {/*temporary*/}
-                <div className=' mt-[3rem]'>
-                    <p className='text-black text-justify mr-7'>{article.content}
-
-                    </p>
+                <div className=' mt-[3rem] text-justify'
+                dangerouslySetInnerHTML={{ __html: article.content }}>
                 </div>
                 </article>
             </div>

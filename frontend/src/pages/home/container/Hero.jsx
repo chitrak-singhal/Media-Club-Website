@@ -24,7 +24,9 @@ const Hero = () => {
         </div>
         <div className='z-10 w-[60%] text-white'>
             <h1 className='text-[3rem] font-bold'>The Media Club IIT BHU</h1>
-            <p className='pr-[15rem] text-justify mt-1 mb-5'>The journalistic and creative faction of IIT BHU Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur maiores nulla animi, modi magni, nesciunt eius adipisci sunt accusamus natus hic aliquam deserunt rerum beatae molestiae repellendus vel nisi eaque?</p>
+            <p className='pr-[15rem] text-justify mt-1 mb-5'>Welcome to the journalistic and creative publishing faction of IIT (BHU) Varanasi! 
+            We deliver insightful articles, captivating interviews, comprehensive surveys and much more. Our platform highlights the latest trends, stories, and achievements from our vibrant community.
+              Join us in celebrating the art of storytelling, amplifying student voices, and fostering media excellence at IIT BHU!</p>
             <Link to ='/about'>
             <button className=' text-white border-2 border-white px-6 pb-2 pt-1.5 rounded-full font-semibold hover:bg-white hover:text-black transition-all duration-300'>
                     Learn More

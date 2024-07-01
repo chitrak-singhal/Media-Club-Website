@@ -1,10 +1,23 @@
 import React from 'react'
+import { useState } from 'react';
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
 
 const DataForm = ({onSubmitFunc}) => {
+  //const [description, setDescription] = useState('');
+  const [content, setContent] = useState('');
+
+  // const handleDescriptionChange = (value) => {
+  //   setDescription(value);
+  // };
+
+  const handleContentChange = (value) => {
+    setContent(value);
+  };
   return (
     <div>
       <div className='mx-[25%]  px-10 py-10 rounded-xl mb-10 shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px]'>
-                <form id="form_id" className='' onSubmit={onSubmitFunc}>
+                <form id="form_id" className='' onSubmit={(e)=>{onSubmitFunc(e,content);}}>
                     <label className='text-xl font-semibold py-5'> 
                     Title 
                     </label>
@@ -17,14 +30,22 @@ const DataForm = ({onSubmitFunc}) => {
                     </label>
                     <br></br>
                     <textarea type="text" className='px-2 py-1 h-[7rem] w-full bg-gray-100 border-[1px] text-wrap border-gray-200 rounded-md mt-2 mb-5 shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)]'>
-                    </textarea> <br></br>
+                    </textarea>
+                    <br></br>
 
                     <label className='text-xl font-semibold py-5'> 
                     Content
                     </label>
                     <br></br>
-                    <textarea type="text" className='px-2 py-1 h-[20rem] w-full bg-gray-100 border-[1px] border-gray-200 rounded-md mt-2 mb-5 shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)]'>
-                    </textarea> <br></br>
+                    {/* <textarea type="text" className='px-2 py-1 h-[20rem] w-full bg-gray-100 border-[1px] border-gray-200 rounded-md mt-2 mb-5 shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)]'>
+                    </textarea>  */}
+                    <ReactQuill
+                      theme='snow'
+                      value={content}
+                      onChange={handleContentChange}
+                      className='bg-gray-100 border-[1px] border-gray-200 rounded-md mt-2 mb-1'
+                    />
+                    <br></br>
 
                     <label className='text-xl font-semibold py-5'> 
                     Link
