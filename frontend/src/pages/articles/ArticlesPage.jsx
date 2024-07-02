@@ -33,6 +33,7 @@ const ArticlesPage = () => {
     .from('articles')
     .select()
     .eq('category','Article')
+    .order('created_at',{ascending:false})
     .limit(6)
     setArticles(data)
     console.log(data);

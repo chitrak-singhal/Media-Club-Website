@@ -33,6 +33,7 @@ const InterviewsPage = () => {
     .from('articles')
     .select()
     .eq('category','Interview')
+    .order('created_at',{ascending:false})
     .limit(6)
     setArticles(data)
     console.log(data);
