@@ -49,7 +49,7 @@ const SuggestedPosts = ({className,header,posts=[]}) => {
                     <div className='flex-cols'>
                         <h2 className='text-[1.4rem] mb-2.5 font-bold h-[2rem] w-full line-clamp-1'>{item.title}</h2>
                         <div className='h-[50%] mb-1'>
-                          <p className='h-full line-clamp-3 text-justify'>{item.description}</p>
+                          <p className='h-full line-clamp-3'>{item.description}</p>
                         </div>
                         <p className='opacity-50'>{formatDateWithDateObject(item.created_at)}</p>
                     </div>
@@ -65,7 +65,7 @@ const SuggestedPosts = ({className,header,posts=[]}) => {
                 <div className='flex-cols'>
                     <h2 className='text-[1.4rem] mb-2.5 font-bold h-[2rem] w-full line-clamp-1 '>{item.title}</h2>
                     <div className='h-[50%] mb-1'>
-                      <p className='h-full line-clamp-3 text-justify'>{item.description}</p>
+                      <p className='h-full line-clamp-3'>{item.description}</p>
                     </div>
                     <p className='opacity-50'>{formatDateWithDateObject(item.created_at)}</p>
                 </div>
@@ -84,7 +84,7 @@ const SuggestedPosts = ({className,header,posts=[]}) => {
                 <div className='flex-cols '>
                     <h2 className='text-[1.4rem] mb-2.5 font-bold h-[2rem] w-full line-clamp-1'>{item.title}</h2>
                     <div className='h-[50%] mb-1'>
-                      <p className='h-full line-clamp-3 text-justify'>{item.description}</p>
+                      <p className='h-full line-clamp-3'>{item.description}</p>
                     </div>
                     <p className='opacity-50 italic'>{formatDateWithDateObject(item.created_at)}</p>
                 </div>
