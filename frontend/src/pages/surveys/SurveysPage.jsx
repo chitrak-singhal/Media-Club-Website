@@ -55,9 +55,9 @@ const SurveysPage = () => {
                     <div className='border-[1.5px] border-black p-5 mb-5 rounded-xl flex gap-x-5 h-[12rem] shadow-[5px_5px_0px_0px_rgba(151,151,151)] hover:cursor-pointer'>
                         <img src={import.meta.env.VITE_STORAGE+item.img_id} className='h-full rounded-xl aspect-square'></img>
                         <div className='flex-cols'>
-                            <h2 className='text-[1.8rem] mb-1 font-bold'>{item.title}</h2>
+                            <h2 className='text-[1.8rem] mb-1 font-bold line-clamp-1'>{item.title}</h2>
                             <div className='h-[50%] mb-1'>
-                            <p className='h-full text-wrap truncate ... text-justify'>{item.description}</p>
+                            <p className='h-full line-clamp-3'>{item.description}</p>
                             </div>
                             <p className='opacity-50 italic' >{formatDateWithDateObject(item.created_at)}</p>
                         </div>
