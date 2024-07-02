@@ -49,7 +49,7 @@ const InterviewsPage = () => {
                         className='rounded-xl mr-2'
                         />
                         <div className='flex-cols'>
-                            <h2 className='text-[1.8rem] mb-1 font-bold h-[3rem] overflow-hidden'>{item.title}</h2>
+                            <h2 className='text-[1.8rem] mb-1 font-bold h-[3rem] line-clamp-1'>{item.title}</h2>
                             <div className='h-[70%] mb-1'>
                             <p className='h-full text-wrap truncate ... text-justify'>{item.description}</p>
                             </div>
